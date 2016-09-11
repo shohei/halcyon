@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  board_id: 1
+  designator: MyString
+  footprint: MyString
+  mid_x: 9.99
+  mid_y: 9.99
+  ref_x: 9.99
+  ref_y: 9.99
+  pad_x: 9.99
+  pad_y: 9.99
+  tb: MyString
+  rotation: 9.99
+  comment: MyString
+  unit: MyString
+
+two:
+  board_id: 1
+  designator: MyString
+  footprint: MyString
+  mid_x: 9.99
+  mid_y: 9.99
+  ref_x: 9.99
+  ref_y: 9.99
+  pad_x: 9.99
+  pad_y: 9.99
+  tb: MyString
+  rotation: 9.99
+  comment: MyString
+  unit: MyString
