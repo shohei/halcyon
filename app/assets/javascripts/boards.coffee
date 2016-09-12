@@ -31,34 +31,64 @@ $ ->
     return
 
   $('button.up').on 'click', ->
+    jogUp()
+    return
+  $('button.down').on 'click', ->
+    jogDown()
+    return
+  $('button.left').on 'click', ->
+    jogLeft()
+    return
+  $('button.right').on 'click', ->
+    jogRight()
+    return
+
+  get_jog_width = ->
+    width = $("input[name=jogWidth]:checked").val()
+    return width
+  jogUp = ->
     width = get_jog_width()
     newText = $('#monitor').val() + 'G1 Y'+width+'\n'
     $('#monitor').text(newText) 
     $('#monitor').scrollTop($('#monitor')[0].scrollHeight)
     return
-  $('button.down').on 'click', ->
+  jogDown = ->
     width = get_jog_width()
     newText = $('#monitor').val() + 'G1 Y-'+width+'\n'
     $('#monitor').text(newText) 
     $('#monitor').scrollTop($('#monitor')[0].scrollHeight)
     return
-  $('button.left').on 'click', ->
+  jogLeft = ->
     width = get_jog_width()
     newText = $('#monitor').val() + 'G1 X-'+width+'\n'
     $('#monitor').text(newText) 
     $('#monitor').scrollTop($('#monitor')[0].scrollHeight)
     return
-  $('button.right').on 'click', ->
+  jogRight = ->
     width = get_jog_width()
     newText = $('#monitor').val() + 'G1 X'+width+'\n'
     $('#monitor').text(newText) 
     $('#monitor').scrollTop($('#monitor')[0].scrollHeight)
     return
 
-  get_jog_width = ->
-    width = $("input[name=jogWidth]:checked").val()
-    return width
-
-
+  $(document).keydown (e) ->
+    switch e.which
+      when 37
+        # left
+        jogLeft();
+      when 38
+        # up
+        jogUp();
+      when 39
+        # right
+        jogRight();
+      when 40
+        # down
+        jogDown();
+      else
+        return
+      # exit this handler for other keys
+    e.preventDefault()
+    # prevent the default action (scroll / move caret)
+    return
   
-
