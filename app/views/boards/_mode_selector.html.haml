@@ -8,3 +8,19 @@
       %label.btn.btn-default
         %input#modeSelect{:name => "modeSelect", :type => "radio", :value => "flexible"}
         flexible 
+
+  .row{style: "margin-top: 20px;"}
+    %form.form-inline{style: "width: 80px;"}
+      .form-group
+        %label Plate X position 
+        %input#exampleInputName2.form-control{:placeholder => "Plate X", :type => "text"}
+      .form-group
+        %label Plate Y position 
+        %input#exampleInputEmail2.form-control{:placeholder => "Plate Y", :type => "text"}
+      .form-group
+        %label Board X position 
+        %input#exampleInputName2.form-control{:placeholder => "Board X", :type => "text"}
+      .form-group
+        %label Board Y position 
+        %input#exampleInputEmail2.form-control{:placeholder => "Board Y", :type => "text"}
+      %button.btn.btn-default{:type => "button", :style =>'margin-top: 20px;'} Generate G-code
