@@ -1,6 +1,6 @@
 %h2 Selected board: #{@board.name}
 
-= link_to 'Back', boards_path
+= link_to 'Back', boards_path, method: :get
 
 %ul.nav.nav-tabs
   %li.active
@@ -9,6 +9,8 @@
     %a{"data-toggle" => "tab", :href => "#tab2"} Generate G-code
   %li
     %a{"data-toggle" => "tab", :href => "#tab3"} Jog control
+  %li
+    %a{"data-toggle" => "tab", :href => "#tab4"} Image processor
 #myTabContent.tab-content
   #tab1.tab-pane.in.active
     = render partial: 'list_components'
@@ -16,3 +18,5 @@
     = render partial: 'generate_gcode'
   #tab3.tab-pane
     = render partial: 'jog'
+  #tab4.tab-pane
+    = render partial: 'image_process'
