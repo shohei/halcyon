@@ -4,7 +4,7 @@ $ ->
     reader = new FileReader
     reader.onload = (e) ->
       contents = e.target.result
-      insert_data(contents)
+      # insert_data(contents)
       return
 
     reader.readAsText f
@@ -20,8 +20,3 @@ $ ->
         return
   	return
 
-  $("#delete").on 'click', ->
-  	alert 'Are you sure to delete?'
-
-  $("#show_modal").on 'click', ->
-  	$('#myModal').modal('show')

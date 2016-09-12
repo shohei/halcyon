@@ -1,0 +1,41 @@
+%h1 PNP demo
+
+%h3 Import board file 
+%button#open_modal_btn.btn.btn-default import
+
+%h2 List of boards
+%table.table
+  %thead
+    %tr
+      %th.col-xs-9 name 
+  %tbody
+    - @boards.each do |board|
+      %tr
+        %td= board.name
+        %td 
+          =link_to "Show", board_path(board)
+        %td 
+          =link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' }
+
+.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+          %span.sr-only Close
+        %h4.modal-title Import board file
+      .modal-body
+        %form
+          .form-group
+            %label Board name
+            %input#board_name.form-control{:placeholder => "Name"}
+          .form-group
+            %label File input
+            %input#load{:type => "file"}/
+            %p.help-block Currently supported format: .txt
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+        %button.btn.btn-primary#save_btn{:type => "button"} Save changes
+
+

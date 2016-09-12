@@ -1,0 +1,14 @@
+%h2 Detail of #{@board.name}
+
+= link_to 'Back', boards_path
+
+%ul.nav.nav-tabs
+  %li.active
+    %a{"data-toggle" => "tab", :href => "#tab1"} List of Components
+  %li
+    %a{"data-toggle" => "tab", :href => "#tab2"} Generate G-code
+#myTabContent.tab-content
+  #tab1.tab-pane.in.active
+    = render partial: 'list_components'
+  #tab2.tab-pane
+    = render partial: 'generate_gcode'

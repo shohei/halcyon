@@ -2,14 +2,14 @@ Rails.application.routes.draw do
   get 'home/index'
   post 'home/insert_data'
 
-  resources 'board'
-  post 'board/insert_data'
+  resources 'boards'
+  post 'boards/insert_data'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'board#index'
+  root 'boards#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
