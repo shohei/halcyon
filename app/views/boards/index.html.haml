@@ -26,10 +26,10 @@
           %span.sr-only Close
         %h4.modal-title Import board file
       .modal-body
-        %form
+        %form{"data-toggle" => "validator", "role" => "form"}
           .form-group
             %label Board name
-            %input#board_name.form-control{:placeholder => "Name"}
+            %input#board_name.form-control{:placeholder => "Name", :required => "", :type=>"text"}
           .form-group
             %label File input
             %input#load{:type => "file"}/

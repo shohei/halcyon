@@ -3,6 +3,8 @@ class Board < ActiveRecord::Base
 	has_many :components, dependent: :destroy
 	accepts_nested_attributes_for :components
 
+	validates_presence_of :name
+
 	def self.import_from_text(params)
 		@name = params[:name]
 		@text = params[:components]
