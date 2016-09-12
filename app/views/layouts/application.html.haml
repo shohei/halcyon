@@ -7,4 +7,18 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = yield
+    %nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          %a.navbar-brand{:href => "#"} HALCYON
+        %ul.nav.navbar-nav
+          %li.active
+            %a{:href => "#"} Home
+          / %li
+          /   %a{:href => "#"} Page 1
+          / %li
+          /   %a{:href => "#"} Page 2
+          / %li
+          /   %a{:href => "#"} Page 3
+    #content-body 
+      = yield
