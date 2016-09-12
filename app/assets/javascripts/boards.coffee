@@ -29,3 +29,36 @@ $ ->
     window.board_name = $('#board_name').val()
     insert_data(window.board_name, window.component_contents)
     return
+
+  $('button.up').on 'click', ->
+    width = get_jog_width()
+    newText = $('#monitor').val() + 'G1 Y'+width+'\n'
+    $('#monitor').text(newText) 
+    $('#monitor').scrollTop($('#monitor')[0].scrollHeight)
+    return
+  $('button.down').on 'click', ->
+    width = get_jog_width()
+    newText = $('#monitor').val() + 'G1 Y-'+width+'\n'
+    $('#monitor').text(newText) 
+    $('#monitor').scrollTop($('#monitor')[0].scrollHeight)
+    return
+  $('button.left').on 'click', ->
+    width = get_jog_width()
+    newText = $('#monitor').val() + 'G1 X-'+width+'\n'
+    $('#monitor').text(newText) 
+    $('#monitor').scrollTop($('#monitor')[0].scrollHeight)
+    return
+  $('button.right').on 'click', ->
+    width = get_jog_width()
+    newText = $('#monitor').val() + 'G1 X'+width+'\n'
+    $('#monitor').text(newText) 
+    $('#monitor').scrollTop($('#monitor')[0].scrollHeight)
+    return
+
+  get_jog_width = ->
+    width = $("input[name=jogWidth]:checked").val()
+    return width
+
+
+  
+
