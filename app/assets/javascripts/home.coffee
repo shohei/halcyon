@@ -20,3 +20,8 @@ $ ->
         return
   	return
 
+  $("#delete").on 'click', ->
+  	alert 'Are you sure to delete?'
+
+  $("#show_modal").on 'click', ->
+  	$('#myModal').modal('show')

@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
 
+group :assets do
+    gem 'jquery-ui-rails'
+    gem 'jquery-modal-rails'
+end
 gem 'pry-rails'
 gem "twitter-bootstrap-rails"
 gem 'haml-rails'

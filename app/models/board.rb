@@ -13,7 +13,12 @@ class Board < ActiveRecord::Base
 			if(counter!=0&&counter!=1)	
 				elements = l.split(" ")
 				chash = {}
-				chash[:board_id]=Board.maximum(:id).next
+				if(Board.all.empty?)
+					nextid = 1
+				else
+				    nextid = Board.maximum(:id).next
+				end
+				chash[:board_id]=nextid
 				chash[:designator]=elements[0]
 				chash[:footprint]=elements[1]
 				chash[:mid_x]=Board.prettify(elements[2])
