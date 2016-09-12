@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
-  get 'home/index'
-  post 'home/insert_data'
+  get 'welcome/index'
 
-  resources 'boards'
+  # resources :session, path: 'login', only: [:new, :create] do
+  #   collection do 
+  #     delete '/', to: "session#delete"
+  #   end
+  # end
+  get 'login' => 'session#new'
+  post 'login' => 'session#create'
+  delete 'logout' => 'session#destroy'
+
+  resource :users
+  resources :boards
+
   post 'boards/insert_data'
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
+  get 'welcome/index'
+  
   root 'boards#index'
 
   # Example of regular route:

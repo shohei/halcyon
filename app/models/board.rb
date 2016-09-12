@@ -1,4 +1,5 @@
 class Board < ActiveRecord::Base
+	belongs_to :user
 	has_many :components, dependent: :destroy
 	accepts_nested_attributes_for :components
 
@@ -16,7 +17,7 @@ class Board < ActiveRecord::Base
 				if(Board.all.empty?)
 					nextid = 1
 				else
-				    nextid = Board.maximum(:id).next
+					nextid = Board.maximum(:id).next
 				end
 				chash[:board_id]=nextid
 				chash[:designator]=elements[0]

@@ -1,0 +1,23 @@
+- if @current_user
+  = link_to "Logout", logout_path, method: :delete 
+
+%h1 Login
+
+= form_for @user, url: login_path, method: :post, html: {class: "login-form"}do |f|
+  - if flash[:error] 
+    #error_explanation
+      %p.alert.alert-danger No such user exists.
+  = hidden_field_tag :referer, flash[:referer]
+
+  .field.form-group
+    = f.label :email 
+    = f.text_field :email, class: "form-control"
+  .field.form-group
+    = f.label :password 
+    = f.password_field :password, class: "form-control"
+  .actions
+    = f.submit class: "btn btn-default"
+
+%div{style: 'margin-top: 20px;'}
+%span Not have an account? 
+=link_to 'Sign up', '/sign_up'
