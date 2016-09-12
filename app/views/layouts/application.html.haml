@@ -8,12 +8,13 @@
     = csrf_meta_tags
   %body
     %nav.navbar.navbar-default
-      .container-fluid
+      .container-fluid 
         .navbar-header
-          %a.navbar-brand{:href => "#"} HALCYON
+          / %a.navbar-brand{:href => "#"} HALCYON
+          %a.navbar-brand HALCYON
         %ul.nav.navbar-nav
           %li.active
-            %a{:href => "#"} Home
+            = link_to 'Home', boards_path, method: :get
           / %li
           /   %a{:href => "#"} Page 1
           / %li

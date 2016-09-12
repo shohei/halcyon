@@ -13,7 +13,7 @@
       %tr
         %td= board.name
         %td 
-          =link_to "Show", board_path(board)
+          =link_to "Show", board_path(board), method: :get
         %td 
           =link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' }
 
