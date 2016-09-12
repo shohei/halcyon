@@ -1,8 +1,8 @@
 %h2 Selected board: #{@board.name}
 
-= link_to 'Back', boards_path, method: :get
+= link_to '<< Back to top', boards_path, method: :get, class: "btn btn-default"
 
-%ul.nav.nav-tabs
+%ul.nav.nav-tabs{style: 'margin-top: 20px;'}
   %li.active
     %a{"data-toggle" => "tab", :href => "#tab1"} List of Components
   %li

@@ -42,6 +42,7 @@ $ ->
   get_jog_width = ->
     width = $("input[name=jogWidth]:checked").val()
     return width
+
   jogUp = ->
     width = get_jog_width()
     newText = $('#monitor').val() + 'G1 Y'+width+'\n'
@@ -83,8 +84,27 @@ $ ->
         jogDown();
       else
         return
-      # exit this handler for other keys
     e.preventDefault()
-    # prevent the default action (scroll / move caret)
     return
   
+  get_mode = ->
+    mode = $("input[name=modeSelect]:checked").val()
+    return mode
+
+  $('input[name=modeSelect]').click ->
+    if $('input:radio[name=modeSelect]:checked').val() == 'fixed'
+      console.log 'fixed'
+    else if $('input:radio[name=modeSelect]:checked').val() == 'flexible'
+      console.log 'flexible'
+    return
+
+
+
+
+
+
+
+
+
+
+

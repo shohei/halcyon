@@ -1,1 +1,10 @@
-hoge
+.container
+  .row{style: "margin-top: 20px;"}
+    %span{style: 'vertical-align: middle; display: inline; font-weight: bold;'} Mode select
+    .btn-group{:role => "group", :style => "vertical-align: middle"}
+      %label.btn.btn-default{:class => "**active**"}
+        %input#modeSelect{:checked => "checked", :name => "modeSelect", :type => "radio", :value => "fixed"}
+        fixed 
+      %label.btn.btn-default
+        %input#modeSelect{:name => "modeSelect", :type => "radio", :value => "flexible"}
+        flexible 
