@@ -32,16 +32,12 @@ $ ->
 
   $('button.up').on 'click', ->
     jogUp()
-    return
   $('button.down').on 'click', ->
     jogDown()
-    return
   $('button.left').on 'click', ->
     jogLeft()
-    return
   $('button.right').on 'click', ->
     jogRight()
-    return
 
   get_jog_width = ->
     width = $("input[name=jogWidth]:checked").val()
