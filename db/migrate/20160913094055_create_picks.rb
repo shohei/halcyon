@@ -1,7 +1,7 @@
-class CreateComponents < ActiveRecord::Migration
+class CreatePicks < ActiveRecord::Migration
   def change
-    create_table :components do |t|
-      t.integer :board_id, null: false
+    create_table :picks do |t|
+      t.integer :tray_id
       t.string :designator
       t.string :footprint
       t.decimal :mid_x

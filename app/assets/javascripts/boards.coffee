@@ -6,16 +6,16 @@ $ ->
     f = @files[0]
     reader = new FileReader
     reader.onload = (e) ->
-      window.component_contents = e.target.result
+      window.place_contents = e.target.result
       return
     reader.readAsText f
     return
 
-  insert_data = (name,components) ->
+  insert_data = (name,places) ->
     $.ajax
       type: 'POST'
       url: '/boards/insert_data'
-      data: 'board_data[name]='+name+'&board_data[components]=' + components
+      data: 'board_data[name]='+name+'&board_data[places]=' + places
       success: (msg) ->
         console.log 'Data uploaded: ' + msg
         return
@@ -27,7 +27,7 @@ $ ->
 
   $('#save_btn').on 'click', ->
     window.board_name = $('#board_name').val()
-    insert_data(window.board_name, window.component_contents)
+    insert_data(window.board_name, window.place_contents)
     return
 
   $('button.up').on 'click', ->

@@ -1,4 +1,4 @@
-%h3 Listing components
+%h3 Listing places
 .panel.panel-default
   %table.table.table-striped.table-hover
     %thead
@@ -16,7 +16,7 @@
         %th comment
         %th unit
     %tbody
-      - @board.components.each do |c|
+      - @board.places.each do |c|
         %tr
           %td= c.designator
           %td= c.footprint

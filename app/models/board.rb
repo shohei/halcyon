@@ -1,17 +1,20 @@
 class Board < ActiveRecord::Base
 	belongs_to :user
-	has_many :components, dependent: :destroy
-	accepts_nested_attributes_for :components
+	# has_many :components, dependent: :destroy
+	has_many :places, dependent: :destroy
+	has_many :picks, dependent: :destroy
+	accepts_nested_attributes_for :places
+	accepts_nested_attributes_for :picks
 
 	validates_presence_of :name
 
 	def self.import_from_text(params)
 		@name = params[:name]
-		@text = params[:components]
+		@text = params[:places]
 
 		counter = 0
 		line = @text.split(/[\r\n]+/)
-		@components_array = []
+		@places_array = []
 		for l in line 
 			if(counter!=0&&counter!=1)	
 				elements = l.split(" ")
@@ -34,11 +37,11 @@ class Board < ActiveRecord::Base
 				chash[:rotation]=elements[9]
 				chash[:comment]=elements[10]
 				chash[:unit]="mm"
-				@components_array.push(chash)
+				@places_array.push(chash)
 			end
 			counter+=1
 		end
-		params = {board: {name: @name, components_attributes: @components_array }}
+		params = {board: {name: @name, places_attributes: @places_array }}
 		board = Board.create(params[:board])
 		board.save
 	end

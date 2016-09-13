@@ -4,7 +4,7 @@
 
 %ul.nav.nav-tabs{style: 'margin-top: 20px;'}
   %li.active
-    %a{"data-toggle" => "tab", :href => "#tab1"} List of Components
+    %a{"data-toggle" => "tab", :href => "#tab1"} List of places
   %li
     %a{"data-toggle" => "tab", :href => "#tab5"} List of Footprints
   %li
@@ -15,7 +15,7 @@
     %a{"data-toggle" => "tab", :href => "#tab4"} Image processor
 #myTabContent.tab-content
   #tab1.tab-pane.in.active
-    = render partial: 'list_components'
+    = render partial: 'list_places'
   #tab5.tab-pane
     = render partial: 'list_footprints'
   #tab2.tab-pane
