@@ -6,6 +6,8 @@
   %li.active
     %a{"data-toggle" => "tab", :href => "#tab1"} List of Components
   %li
+    %a{"data-toggle" => "tab", :href => "#tab5"} List of Footprints
+  %li
     %a{"data-toggle" => "tab", :href => "#tab2"} Generate G-code
   %li
     %a{"data-toggle" => "tab", :href => "#tab3"} Jog control
@@ -14,6 +16,8 @@
 #myTabContent.tab-content
   #tab1.tab-pane.in.active
     = render partial: 'list_components'
+  #tab5.tab-pane
+    = render partial: 'list_footprints'
   #tab2.tab-pane
     = render partial: 'generate_gcode'
   #tab3.tab-pane
