@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20160913094055) do
 
   create_table "picks", force: :cascade do |t|
     t.integer  "tray_id"
+    t.string   "footprint_id"
     t.string   "designator"
-    t.string   "footprint"
     t.decimal  "mid_x"
     t.decimal  "mid_y"
     t.decimal  "ref_x"
@@ -45,15 +45,14 @@ ActiveRecord::Schema.define(version: 20160913094055) do
     t.decimal  "rotation"
     t.string   "comment"
     t.string   "unit"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "places", force: :cascade do |t|
     t.integer  "board_id",     null: false
     t.integer  "footprint_id"
     t.string   "designator"
-    t.string   "footprint"
     t.decimal  "mid_x"
     t.decimal  "mid_y"
     t.decimal  "ref_x"

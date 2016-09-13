@@ -2,8 +2,8 @@ class CreatePicks < ActiveRecord::Migration
   def change
     create_table :picks do |t|
       t.integer :tray_id
+      t.string :footprint_id
       t.string :designator
-      t.string :footprint
       t.decimal :mid_x
       t.decimal :mid_y
       t.decimal :ref_x

@@ -1,2 +1,16 @@
-%h3 List of Footprints
-
+%h3 Listing footprints 
+.panel.panel-default
+  %table.table.table-striped.table-hover
+    %thead
+      %tr 
+        %th name
+        %th outward_width
+        %th outward_depth
+        %th unit
+    %tbody
+      - @footprints.each do |f|
+        %tr
+          %td= f.name
+          %td= f.outward_width
+          %td= f.outward_depth
+          %td= f.unit

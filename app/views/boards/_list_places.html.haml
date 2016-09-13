@@ -4,7 +4,7 @@
     %thead
       %tr 
         %th designator
-        %th footprint
+        %th footprint name
         %th mid_x
         %th mid_y
         %th ref_x
@@ -16,18 +16,17 @@
         %th comment
         %th unit
     %tbody
-      - @board.places.each do |c|
+      - @board.places.each do |p|
         %tr
-          %td= c.designator
-          %td= c.footprint
-          %td= c.mid_x
-          %td= c.mid_y
-          %td= c.ref_x
-          %td= c.ref_y
-          %td= c.pad_x
-          %td= c.pad_y
-          %td= c.tb
-          %td= c.rotation
-          %td= c.comment
-          %td= c.unit
-
+          %td= p.designator
+          %td= p.footprint.name
+          %td= p.mid_x
+          %td= p.mid_y
+          %td= p.ref_x
+          %td= p.ref_y
+          %td= p.pad_x
+          %td= p.pad_y
+          %td= p.tb
+          %td= p.rotation
+          %td= p.comment
+          %td= p.unit

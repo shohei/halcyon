@@ -26,7 +26,11 @@ class Board < ActiveRecord::Base
 				end
 				chash[:board_id]=nextid
 				chash[:designator]=elements[0]
-				chash[:footprint]=elements[1]
+				if(Footprint.find_by(name: elements[1]).nil?)
+					Footprint.create(name: elements[1])
+			  end
+			  footprint_id = Footprint.find_by(name: elements[1]).id
+				chash[:footprint_id]=footprint_id
 				chash[:mid_x]=Board.prettify(elements[2])
 				chash[:mid_y]=Board.prettify(elements[3])
 				chash[:ref_x]=Board.prettify(elements[4])

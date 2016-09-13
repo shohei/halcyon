@@ -1,4 +1,4 @@
 class Place < ActiveRecord::Base
   belongs_to :board
-  # belongs_to :footprint
+  belongs_to :footprint
 end

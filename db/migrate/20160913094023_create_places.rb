@@ -4,7 +4,6 @@ class CreatePlaces < ActiveRecord::Migration
       t.integer :board_id, null: false
       t.integer :footprint_id
       t.string :designator
-      t.string :footprint
       t.decimal :mid_x
       t.decimal :mid_y
       t.decimal :ref_x

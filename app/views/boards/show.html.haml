@@ -4,23 +4,23 @@
 
 %ul.nav.nav-tabs{style: 'margin-top: 20px;'}
   %li.active
-    %a{"data-toggle" => "tab", :href => "#tab1"} List of places
+    %a{"data-toggle" => "tab", :href => "#tab_place"} List of places
   %li
-    %a{"data-toggle" => "tab", :href => "#tab5"} List of Footprints
+    %a{"data-toggle" => "tab", :href => "#tab_footprint"} List of Footprints
   %li
-    %a{"data-toggle" => "tab", :href => "#tab2"} Generate G-code
+    %a{"data-toggle" => "tab", :href => "#tab_gcode"} Generate G-code
   %li
-    %a{"data-toggle" => "tab", :href => "#tab3"} Jog control
+    %a{"data-toggle" => "tab", :href => "#tab_jog"} Jog control
   %li
-    %a{"data-toggle" => "tab", :href => "#tab4"} Image processor
+    %a{"data-toggle" => "tab", :href => "#tab_image"} Image processor
 #myTabContent.tab-content
-  #tab1.tab-pane.in.active
+  #tab_place.tab-pane.in.active
     = render partial: 'list_places'
-  #tab5.tab-pane
+  #tab_footprint.tab-pane
     = render partial: 'list_footprints'
-  #tab2.tab-pane
+  #tab_gcode.tab-pane
     = render partial: 'generate_gcode'
-  #tab3.tab-pane
+  #tab_jog.tab-pane
     = render partial: 'jog'
-  #tab4.tab-pane
+  #tab_image.tab-pane
     = render partial: 'image_process'
