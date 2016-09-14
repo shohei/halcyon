@@ -102,7 +102,7 @@ $ ->
     encode_as_img_and_link()
     return
 
-  drawTest2 = ->
+  drawTest = ->
     svgns = "http://www.w3.org/2000/svg"
     for x in [0..400] by 50 
       for y in [0..350] by 50
@@ -114,7 +114,7 @@ $ ->
         rect.setAttributeNS(null, 'fill', '#'+Math.round(0xffffff * Math.random()).toString(16))
         document.getElementById('svgOne').appendChild(rect)
     return
-  drawTest2()
+  drawTest()
 
   encode_as_img_and_link = ->
     $("svg").attr({ version: '1.1' , xmlns:"http://www.w3.org/2000/svg"});
