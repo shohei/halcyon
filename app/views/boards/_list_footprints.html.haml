@@ -1,5 +1,10 @@
 %h3 Listing footprints 
-.panel.panel-default
+
+.panel.panel-default.col-md-8
+  %span{style: 'font-weight:bold;margin:0 10px;'} import footprints
+  %button.btn.btn-default{style: 'margin:10px;'} import 
+
+.panel.panel-default.col-md-8
   %table.table.table-striped.table-hover
     %thead
       %tr 
@@ -10,7 +15,7 @@
     %tbody
       - @footprints.each do |f|
         %tr
-          %td= f.name
-          %td= f.outward_width
-          %td= f.outward_depth
-          %td= f.unit
+          %td.col-md-2= f.name
+          %td.col-md-2= f.outward_width
+          %td.col-md-2= f.outward_depth
+          %td.col-md-2= f.unit

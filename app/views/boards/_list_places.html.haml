@@ -1,32 +1,61 @@
 %h3 Listing places
 .panel.panel-default
-  %table.table.table-striped.table-hover
-    %thead
-      %tr 
-        %th designator
-        %th footprint name
-        %th mid_x
-        %th mid_y
-        %th ref_x
-        %th ref_y
-        %th pad_x
-        %th pad_y
-        %th tb
-        %th rotation
-        %th comment
-        %th unit
-    %tbody
-      - @board.places.each do |p|
+  .table-responsive
+    %table.table.table-striped.table-hover
+      %thead
+        %tr 
+          %th designator
+          %th footprint_name
+          %th mid_x
+          %th mid_y
+          %th ref_x
+          %th ref_y
+          %th pad_x
+          %th pad_y
+          %th tb
+          %th rotation
+          %th comment
+          %th unit
+      %tbody
         %tr
-          %td= p.designator
-          %td= p.footprint.name
-          %td= p.mid_x
-          %td= p.mid_y
-          %td= p.ref_x
-          %td= p.ref_y
-          %td= p.pad_x
-          %td= p.pad_y
-          %td= p.tb
-          %td= p.rotation
-          %td= p.comment
-          %td= p.unit
+          %td
+            %input.form-control{:name => "designator", :type => "text"}/
+          %td.col-md-1
+            %input.form-control{:name => "footprint_name", :type => "text"}/
+          %td
+            %input.form-control{:name => "mid_x",  :type => "text"}/
+          %td
+            %input.form-control{:name => "mid_y",  :type => "text"}/
+          %td
+            %input.form-control{:name => "ref_x",  :type => "text"}/
+          %td
+            %input.form-control{:name => "ref_y",  :type => "text"}/
+          %td
+            %input.form-control{:name => "pad_x",  :type => "text"}/
+          %td
+            %input.form-control{:name => "pad_y",  :type => "text"}/
+          %td.col-md-1
+            %input.form-control{:name => "tb",  :type => "text"}/
+          %td
+            %input.form-control{:name => "rotation",  :type => "text"}/
+          %td.col-md-1
+            %input.form-control{:name => "comment",  :type => "text"}/
+          %td.col-md-1
+            %input.form-control{:name => "unit", :type => "text"}/
+          %td
+            %button.btn.btn-default create
+        - @board.places.each do |p|
+          %tr
+            %td= p.designator
+            %td= p.footprint.name
+            %td= p.mid_x
+            %td= p.mid_y
+            %td= p.ref_x
+            %td= p.ref_y
+            %td= p.pad_x
+            %td= p.pad_y
+            %td= p.tb
+            %td= p.rotation
+            %td= p.comment
+            %td= p.unit
+
