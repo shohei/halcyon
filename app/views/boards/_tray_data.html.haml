@@ -2,29 +2,13 @@
 
 .container
   .col-md-6
-    %h4 Detail of picks
-    .panel.panel-default
-      .table-responsive
-        %table.table.table-striped.table-hover
-          %thead
-            %tr 
-              %th name
-              %th outward_width
-              %th outward_depth
-              %th unit
-          %tbody
-            - @footprints.each do |f|
-              %tr
-                %td.col-md-1= f.name
-                %td.col-md-1= f.outward_width
-                %td.col-md-1= f.outward_depth
-                %td.col-md-1= f.unit
-  .col-md-4
     %h4 Viewer
     / %canvas#tray_canvas{style: 'border: #cccccc 1px solid; max-width: 400px; height: 350px;'}
     #chart-canvas
       %svg#svgOne{xmlns: "http://www.w3.org/2000/svg", style: 'border: #cccccc 1px solid; min-width: 400px; max-width: 400px; height: 350px;'}
 
-    %span{style: 'font-weight:bold;'} Download as a file (.svg) 
+  .col-md-4
+    / %span{style: 'font-weight:bold;'} Download as a file (.svg) 
+    %h4 Download as a file (.svg) 
     %button.btn.btn-default#download_svg Download
     #download_area

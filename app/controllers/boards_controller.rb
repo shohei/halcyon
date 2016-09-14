@@ -24,6 +24,11 @@ class BoardsController < ApplicationController
     end
   end
 
+  def update_picks
+    board_id = params[:board_id].keys.first
+    Pick.generate_from_place(board_id)
+    redirect_to '/boards/' + board_id
+  end
 
   def insert_data
     @params = params[:board_data]

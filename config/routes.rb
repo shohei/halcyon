@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   post 'boards/insert_data'
   post 'boards/load_footprint'
+  post 'boards/update_picks'
+
   get 'welcome/index'
   
   root 'boards#index'

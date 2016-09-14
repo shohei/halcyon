@@ -32,18 +32,12 @@ ActiveRecord::Schema.define(version: 20160913094055) do
   end
 
   create_table "picks", force: :cascade do |t|
-    t.integer  "tray_id"
+    t.integer  "board_id"
     t.string   "footprint_id"
-    t.string   "designator"
-    t.decimal  "mid_x"
-    t.decimal  "mid_y"
-    t.decimal  "ref_x"
-    t.decimal  "ref_y"
-    t.decimal  "pad_x"
-    t.decimal  "pad_y"
-    t.string   "tb"
-    t.decimal  "rotation"
     t.string   "comment"
+    t.decimal  "start_x"
+    t.decimal  "start_y"
+    t.string   "amount"
     t.string   "unit"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

@@ -2,7 +2,7 @@ class Board < ActiveRecord::Base
 	require 'csv'
 
 	belongs_to :user
-	# has_many :components, dependent: :destroy
+	has_many :trays, dependent: :destroy
 	has_many :places, dependent: :destroy
 	has_many :picks, dependent: :destroy
 	accepts_nested_attributes_for :places

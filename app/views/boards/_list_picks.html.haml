@@ -1,0 +1,29 @@
+%h3 Listing picks
+.panel.panel-default.col-md-4
+  %div{style: 'font-weight:bold;margin:10px 0px;'} Update picks
+  = form_tag({controller: "boards", action: "update_picks", method: "post"}) do
+    = hidden_field :board_id, @board.id
+    %div{style: 'margin: 10px 0px;'}
+    = submit_tag "update", class: 'btn btn-default'
+    %div{style: 'margin: 10px 0px;'}
+
+.panel.panel-default.col-md-9
+  .table-responsive
+    %table.table.table-striped.table-hover
+      %thead
+        %tr 
+          %th footprint_name
+          %th comment
+          %th start_x
+          %th start_y
+          %th amount
+          %th unit
+      %tbody
+        - @board.picks.each do |p|
+          %tr
+            %td= p.footprint.name
+            %td= p.comment
+            %td= p.start_x
+            %td= p.start_y
+            %td= p.amount
+            %td= p.unit
