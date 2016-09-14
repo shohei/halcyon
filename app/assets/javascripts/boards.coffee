@@ -98,7 +98,7 @@ $ ->
       console.log 'flexible'
     return
 
-  $('#download_dxf').click 'on', ->
+  $('#download_svg').click 'on', ->
     encode_as_img_and_link()
     return
 
