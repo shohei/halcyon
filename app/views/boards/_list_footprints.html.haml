@@ -1,7 +1,7 @@
 %h3 Listing footprints 
 
 .panel.panel-default.col-md-8
-  %div{style: 'font-weight:bold;margin:10px 0px;'} import footprints
+  %div{style: 'font-weight:bold;margin:10px 0px;'} Import footprints (.csv format)
 
   = form_tag({controller: "boards", action: "load_footprint", method: "post"}, {multipart: true}) do
     = hidden_field :board_id, @board.id
