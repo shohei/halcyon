@@ -1,4 +1,6 @@
 class Board < ActiveRecord::Base
+	require 'csv'
+
 	belongs_to :user
 	# has_many :components, dependent: :destroy
 	has_many :places, dependent: :destroy
@@ -54,5 +56,19 @@ class Board < ActiveRecord::Base
 		num = text.gsub("mm","")
 		return num
 	end
+
+	def self.load_footprint_csv(file)
+    CSV.foreach(file.path, headers: true) do |row|
+    	footprint_attributes = row.to_hash.slice(*updatable_attributes)
+    	footprint_name = footprint_attributes["name"]
+      footprint = Footprint.find_by(name: footprint_name)
+      footprint.attributes = footprint_attributes
+      footprint.save
+    end
+	end
+
+	def self.updatable_attributes
+    ["name","outward_width","outward_depth","unit"]
+  end
 
 end

@@ -31,6 +31,13 @@ class BoardsController < ApplicationController
     redirect_to action: :index
   end
 
+  def load_footprint
+    board_id = params[:board_id].keys.first
+    file = params[:file]
+    Board.load_footprint_csv(file)
+    redirect_to '/boards/' + board_id
+  end
+
   private
   def set_board
      @board = Board.find(params[:id])

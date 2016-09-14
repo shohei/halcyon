@@ -1,8 +1,14 @@
 %h3 Listing footprints 
 
 .panel.panel-default.col-md-8
-  %span{style: 'font-weight:bold;margin:0 10px;'} import footprints
-  %button.btn.btn-default{style: 'margin:10px;'} import 
+  %div{style: 'font-weight:bold;margin:10px 0px;'} import footprints
+
+  = form_tag({controller: "boards", action: "load_footprint", method: "post"}, {multipart: true}) do
+    = hidden_field :board_id, @board.id
+    = file_field_tag :file 
+    %div{style: 'margin: 10px 0px;'}
+    = submit_tag "import", class: 'btn btn-default'
+    %div{style: 'margin: 10px 0px;'}
 
 .panel.panel-default.col-md-8
   %table.table.table-striped.table-hover

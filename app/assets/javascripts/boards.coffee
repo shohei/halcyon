@@ -98,8 +98,28 @@ $ ->
       console.log 'flexible'
     return
 
+  # $("#fileinput_footprint").on 'change', ->
+  #   f = @files[0]
+  #   reader = new FileReader
+  #   reader.onload = (e) ->
+  #     window.place_contents = e.target.result
+  #     return
+  #   reader.readAsText f
+  #   return
 
+  # $('#load_footprint').on 'click', ->
+  #   upload_footprint()
+  #   return
 
+  # upload_footprint = (footprint_data) ->
+  #   $.ajax
+  #     type: 'POST'
+  #     url: '/boards/load_footprint'
+  #     data: 'footprint_data'+ footprint_data
+  #     success: (msg) ->
+  #       console.log 'Data uploaded: ' + msg
+  #       return
+  #   return
 
 
 
