@@ -98,33 +98,30 @@ $ ->
       console.log 'flexible'
     return
 
-  # $("#fileinput_footprint").on 'change', ->
-  #   f = @files[0]
-  #   reader = new FileReader
-  #   reader.onload = (e) ->
-  #     window.place_contents = e.target.result
-  #     return
-  #   reader.readAsText f
-  #   return
+  $('#download_dxf').click 'on', ->
+    encode_as_img_and_link()
+    return
 
-  # $('#load_footprint').on 'click', ->
-  #   upload_footprint()
-  #   return
+  drawTest2 = ->
+    svgns = "http://www.w3.org/2000/svg"
+    for x in [0..400] by 50 
+      for y in [0..350] by 50
+        rect = document.createElementNS(svgns, 'rect')
+        rect.setAttributeNS(null, 'x', x)
+        rect.setAttributeNS(null, 'y', y)
+        rect.setAttributeNS(null, 'height', '50')
+        rect.setAttributeNS(null, 'width', '50')
+        rect.setAttributeNS(null, 'fill', '#'+Math.round(0xffffff * Math.random()).toString(16))
+        document.getElementById('svgOne').appendChild(rect)
+    return
+  drawTest2()
 
-  # upload_footprint = (footprint_data) ->
-  #   $.ajax
-  #     type: 'POST'
-  #     url: '/boards/load_footprint'
-  #     data: 'footprint_data'+ footprint_data
-  #     success: (msg) ->
-  #       console.log 'Data uploaded: ' + msg
-  #       return
-  #   return
-
-
-
-
-
-
-
+  encode_as_img_and_link = ->
+    $("svg").attr({ version: '1.1' , xmlns:"http://www.w3.org/2000/svg"});
+    svg = $("#chart-canvas").html()
+    b64 = Base64.encode(svg) # / or use btoa if supported
+    $("#download_area").append($("<a style='display:none' id='download_link' href='data:image/svg+xml;base64,\n"+b64+"' alt='file.svg' download='file.svg'>Download</a>"));
+    # // Works in Firefox 3.6 and Webit and possibly any browser which supports the data-uri
+    # $("body").append($("<a href-lang='image/svg+xml' href='data:image/svg+xml;base64,\n"+b64+"' title='file.svg'>Download</a>"));
+    document.getElementById("download_link").click()
 

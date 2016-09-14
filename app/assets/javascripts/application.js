@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require base64
 //= require twitter/bootstrap
 //= require bootstrapValidator.min
 //= require turbolinks
