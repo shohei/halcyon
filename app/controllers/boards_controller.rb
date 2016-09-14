@@ -6,11 +6,7 @@ class BoardsController < ApplicationController
   end
 
   def show
-    footprint_ids = [] 
-    @board.places.each do |p|
-      footprint_ids.push(p.footprint_id)
-    end
-    @footprints = Footprint.where(id: footprint_ids.uniq)
+    @footprints = Footprint.where(id: @board.places.pluck(:id).uniq)
   end
 
   def edit
