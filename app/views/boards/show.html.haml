@@ -8,7 +8,9 @@
   %li
     %a{"data-toggle" => "tab", :href => "#tab_footprint"} List of Footprints
   %li
-    %a{"data-toggle" => "tab", :href => "#tab_gcode"} Generate G-code
+    %a{"data-toggle" => "tab", :href => "#tab_tray"} Tray generator
+  %li
+    %a{"data-toggle" => "tab", :href => "#tab_gcode"} G-code generator
   %li
     %a{"data-toggle" => "tab", :href => "#tab_jog"} Jog control
   %li
@@ -18,6 +20,8 @@
     = render partial: 'list_places'
   #tab_footprint.tab-pane
     = render partial: 'list_footprints'
+  #tab_tray.tab-pane
+    = render partial: 'tray_data'
   #tab_gcode.tab-pane
     = render partial: 'generate_gcode'
   #tab_jog.tab-pane
