@@ -19,7 +19,7 @@
           %th amount
           %th unit
       %tbody
-        - @board.picks.each do |p|
+        - @board.picks.order(:footprint_id).each do |p|
           %tr
             %td= p.footprint.name
             %td= p.comment
