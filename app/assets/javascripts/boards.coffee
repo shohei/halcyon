@@ -11,13 +11,22 @@ $ ->
     reader.readAsText f
     return
 
+  ajaxStart = ->
+    $("body").addClass("loading")
+    return
+  ajaxStop = ->
+    $("body").removeClass("loading")
+    return
+
   insert_data = (name,places) ->
+    ajaxStart()
     $.ajax
       type: 'POST'
       url: '/boards/insert_data'
       data: 'board_data[name]='+name+'&board_data[places]=' + places
       success: (msg) ->
         console.log 'Data uploaded: ' + msg
+        ajaxStop()
         return
     return
 
@@ -26,6 +35,7 @@ $ ->
     return
 
   $('#save_btn').on 'click', ->
+    $(".modal").modal('toggle')
     window.board_name = $('#board_name').val()
     insert_data(window.board_name, window.place_contents)
     return
@@ -124,4 +134,9 @@ $ ->
     # // Works in Firefox 3.6 and Webit and possibly any browser which supports the data-uri
     # $("body").append($("<a href-lang='image/svg+xml' href='data:image/svg+xml;base64,\n"+b64+"' title='file.svg'>Download</a>"));
     document.getElementById("download_link").click()
+
+  $(".import_footprint_btn").on "click", ->
+    ajaxStart()
+  $(".update_picks_btn").on "click", ->
+    ajaxStart()
 

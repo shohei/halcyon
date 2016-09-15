@@ -4,7 +4,7 @@
   = form_tag({controller: "boards", action: "update_picks", method: "post"}) do
     = hidden_field :board_id, @board.id
     %div{style: 'margin: 10px 0px;'}
-    = submit_tag "update", class: 'btn btn-default'
+    = submit_tag "update", class: 'btn btn-default update_picks_btn'
     %div{style: 'margin: 10px 0px;'}
 
 .panel.panel-default.col-md-9
