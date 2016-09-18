@@ -15,8 +15,19 @@
         %ul.nav.navbar-nav
           %li.active
             = link_to 'Home', boards_path, method: :get
-          / %li
-          /   %a{:href => "#"} Page 1
+          %li.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              Connect
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => "#"} Device
+              %li
+                %a{:href => "#"} Emulator
+              %li.divider{:role => "separator"}
+              %li
+                %a{:href => "#"} Reset connection
+
           / %li
           /   %a{:href => "#"} Page 2
           / %li
