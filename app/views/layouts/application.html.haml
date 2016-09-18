@@ -21,17 +21,13 @@
               %span.caret
             %ul.dropdown-menu
               %li
-                %a{:href => "#"} Device
+                %a#connect_device{href: ''} Device
               %li
-                %a{:href => "#"} Emulator
+                %a#connect_emulator{href: ''} Emulator
               %li.divider{:role => "separator"}
               %li
-                %a{:href => "#"} Reset connection
+                %a#reset_connection{href: ''} Reset connection
 
-          / %li
-          /   %a{:href => "#"} Page 2
-          / %li
-          /   %a{:href => "#"} Page 3
     #content-body 
       = yield
       .ajax-request
