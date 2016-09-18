@@ -13,11 +13,13 @@ $ ->
     return
 
   $("#open_modal_btn").on 'click', ->
-    $(".modal").modal('show')
+    # $(".modal").modal('show')
+    $("#upload_board_modal").modal('show')
     return
 
   $('#save_btn').on 'click', ->
-    $(".modal").modal('toggle')
+    # $(".modal").modal('toggle')
+    $("#upload_board_modal").modal('toggle')
     window.board_name = $('#board_name').val()
     insert_data(window.board_name, window.place_contents)
     return
@@ -70,6 +72,10 @@ $ ->
 
   $('#connect_device').on "click", (e) ->
     e.preventDefault()
+    $("#connect_device_modal").modal('show')
+    document.counter = 5
+    document.deviceConnected = false
+    document.itvId = setInterval(countConnection, 1000);
     $.ajax 
       method: 'GET'
       url: 'http://localhost:8005/echeck/'
@@ -97,6 +103,7 @@ $ ->
         console.log 'Reset device '
         return
     return
+
 # ------------------------------------------------------------------------
 # function definition
 # ------------------------------------------------------------------------
@@ -174,6 +181,17 @@ $ ->
     # $("body").append($("<a href-lang='image/svg+xml' href='data:image/svg+xml;base64,\n"+b64+"' title='file.svg'>Download</a>"));
     document.getElementById("download_link").click()
     return
+
+  countConnection =  ->
+    $("#connect_msg").text('Connecting... wait for '+document.counter+' seconds.');
+    document.counter--
+    if document.counter < 0
+      clearInterval(document.itvId)
+      $("#connect_device_modal").modal('toggle')
+      if document.deviceConnected 
+        $("#connect_success_modal").modal('show')
+      else
+        $("#connect_fail_modal").modal('show')
 
 # ------------------------------------------------------------------------
 # fire function

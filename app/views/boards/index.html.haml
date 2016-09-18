@@ -17,7 +17,7 @@
         %td 
           =link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' }
 
-.modal.fade
+.modal.fade#upload_board_modal
   .modal-dialog
     .modal-content
       .modal-header
@@ -37,5 +37,33 @@
       .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
         %button.btn.btn-primary#save_btn{:type => "button"} Save changes
+
+.modal#connect_device_modal{'data-backdrop':"static", 'data-keyboard':"false"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4.modal-title Connecting to device
+      .modal-body
+        %p.modal-title#connect_msg Wait for a while
+
+.modal#connect_success_modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4.modal-title Connection success
+      .modal-body
+        %p.modal-title#connect_msg The device is successfully connected.
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} OK
+
+.modal#connect_fail_modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4.modal-title Connection failed
+      .modal-body
+        %p.modal-title#connect_msg Is halcyon-starter running? Launch the program before trying connection.
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} OK
 
 <div class="modal"><!-- Place at bottom of page --></div>

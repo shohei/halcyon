@@ -14,7 +14,8 @@
  *= require bootstrapValidator.min
  *= require_self
  */
-
+ .modal-backdrop {background: none;}
+  
  .navbar-nav > li > a, .navbar-brand {
     padding-top:10px !important; padding-bottom:0 !important;
     height: 40px;
@@ -53,3 +54,4 @@ body.loading {
 body.loading .ajax-request{
     display: block;
 }
+

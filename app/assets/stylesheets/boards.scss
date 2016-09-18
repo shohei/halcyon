@@ -6,4 +6,7 @@
 {
     overflow-x: auto;
 }
-
+#connect_device_modal,#connect_success_modal,#connect_fail_modal{
+  position: absolute;
+  margin-top: 200px;
+}
