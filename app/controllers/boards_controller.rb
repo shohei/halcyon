@@ -6,7 +6,7 @@ class BoardsController < ApplicationController
   end
 
   def show
-    @footprints = Footprint.where(id: @board.places.pluck(:id).uniq)
+    @footprints = Footprint.where(id: @board.places.pluck(:footprint_id).uniq)
   end
 
   def edit

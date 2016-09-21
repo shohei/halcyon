@@ -30,8 +30,8 @@ class Board < ActiveRecord::Base
 				chash[:designator]=elements[0]
 				if(Footprint.find_by(name: elements[1]).nil?)
 					Footprint.create(name: elements[1])
-			  end
-			  footprint_id = Footprint.find_by(name: elements[1]).id
+				end
+				footprint_id = Footprint.find_by(name: elements[1]).id
 				chash[:footprint_id]=footprint_id
 				chash[:mid_x]=Board.prettify(elements[2])
 				chash[:mid_y]=Board.prettify(elements[3])
@@ -58,17 +58,17 @@ class Board < ActiveRecord::Base
 	end
 
 	def self.load_footprint_csv(file)
-    CSV.foreach(file.path, headers: true) do |row|
-    	footprint_attributes = row.to_hash.slice(*updatable_attributes)
-    	footprint_name = footprint_attributes["name"]
-      footprint = Footprint.find_by(name: footprint_name)
-      footprint.attributes = footprint_attributes
-      footprint.save
-    end
+		CSV.foreach(file.path, headers: true) do |row|
+			footprint_attributes = row.to_hash.slice(*updatable_attributes)
+			footprint_name = footprint_attributes["name"]
+			footprint = Footprint.find_by(name: footprint_name)
+			footprint.attributes = footprint_attributes
+			footprint.save
+		end
 	end
 
 	def self.updatable_attributes
-    ["name","outward_width","outward_depth","unit"]
-  end
+		["name","outward_width","outward_depth","unit"]
+	end
 
 end
